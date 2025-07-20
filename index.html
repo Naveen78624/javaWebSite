@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Methods Cheat Sheet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Categories</h3>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#oop-concepts-section">OOP Concepts</a></li>
+      <li><a href="#collection-framework-section">Collection Framework</a></li>
+      <li><a href="#string-methods-section">String Methods</a></li>
+      <li><a href="#array-section">Array Methods</a></li>
+      <li><a href="#stringbuilder-section">StringBuilder Methods</a></li>
+      <li><a href="#char-array-section">Character Array Methods</a></li>
+      <li><a href="#sorting-section">Sorting</a></li>
+      <li><a href="#searching-section">Searching</a></li>
+      <li><a href="#string-manipulation-section">String Manipulation</a></li>
+      <li><a href="#recursion-section">Recursion</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-code"></i>
+          <h1>Java Methods Cheat Sheet</h1>
+        </div>
+        <p class="tagline">A comprehensive reference for essential Java methods.</p>
+      </div>
+      <div class="controls">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="oop-concepts-section" class="category-section">
+        <h2 class="section-title">Object-Oriented Programming (OOP) Concepts</h2>
+
+        <div class="method-card">
+          <div class="card-header"><h3>What is OOP and Why Use It in Java?</h3></div>
+          <div class="card-body">
+            <p class="method-desc">OOP stands for Object-Oriented Programming, a paradigm that uses objects to design applications. Unlike procedural programming (which focuses on functions), OOP emphasizes objects that interact.</p>
+            <p class="method-desc"><b>Key Benefits:</b> Modularity (break problems into smaller parts), reusability (use code again without rewriting), and scalability (easier to update large projects).</p>
+            <p class="method-desc"><b>Java's Role:</b> Java enforces OOP principles strictly—almost everything is an object, and it supports features like garbage collection for memory management.</p>
+            <p class="method-desc"><b>Insight for Quick Learning:</b> Relate OOP to everyday life. For example, a "Car" isn't just data; it has attributes (color, speed) and actions (drive, brake). This mental model speeds up understanding—always ask: "What real thing am I modeling?"</p>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Core Building Blocks: Classes and Objects</h3>
+        <div class="method-card">
+          <div class="card-header"><h3>Classes and Objects Explained</h3></div>
+          <div class="card-body">
+             <p class="method-desc"><b>Class:</b> A blueprint or template for creating objects. It defines what data (attributes) and behaviors (methods) an object will have.</p>
+             <p class="method-desc"><b>Object:</b> An instance of a class. It's like creating multiple cars from one car blueprint.</p>
+          </div>
+          <div class="card-footer">
+            <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+            <div class="code-example">// Class definition
+class Dog {
+    // Attributes (instance variables)
+    String name;
+    int age;
+
+    // Method (behavior)
+    void bark() {
+        System.out.println(name + " says: Woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects
+        Dog myDog = new Dog();  // Object instantiation
+        myDog.name = "Buddy";
+        myDog.age = 3;
+        myDog.bark();  // Output: Buddy says: Woof!
+    }
+}</div>
+          </div>
+        </div>
+        
+        <h3 class="subsection-title">The Four Pillars of OOP</h3>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header"><h3>1. Encapsulation</h3></div>
+            <div class="card-body"><p class="method-desc">This "hides" data inside objects and controls access via methods. It protects data from misuse. Use access modifiers like <code>private</code> and getters/setters.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">class BankAccount {
+    private double balance;  // Encapsulated data
+
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>2. Inheritance</h3></div>
+            <div class="card-body"><p class="method-desc">Allows a class to inherit properties and methods from another, promoting reuse. Use the <code>extends</code> keyword.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Cat extends Animal {  // Inheritance
+    void meow() {
+        System.out.println("Meow!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cat myCat = new Cat();
+        myCat.eat();  // Inherited method
+        myCat.meow();
+    }
+}</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>3. Polymorphism</h3></div>
+            <div class="card-body"><p class="method-desc">Means "many forms." It lets objects of different classes be treated as one type, often through method overriding or overloading.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example (Overriding)</button>
+              <div class="code-example">class Shape {
+    void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape s = new Circle();  // Polymorphism
+        s.draw();  // Output: Drawing a circle
+    }
+}</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>4. Abstraction</h3></div>
+            <div class="card-body"><p class="method-desc">Hides complex details and shows only essentials. Use abstract classes or interfaces.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example (Interface)</button>
+              <div class="code-example">interface Vehicle {
+    void start();  // Abstract method
+}
+
+class Bike implements Vehicle {
+    public void start() {
+        System.out.println("Bike starting...");
+    }
+}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="collection-framework-section" class="category-section">
+        <h2 class="section-title">Java Collection Framework</h2>
+
+        <h3 class="subsection-title">1. ArrayList Methods</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>add(E e)</h3></div><div class="card-body"><p class="method-desc">Appends an element to the end of the list.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add("A");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>add(int index, E element)</h3></div><div class="card-body"><p class="method-desc">Inserts an element at a specific index.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">List&lt;String&gt; list = new ArrayList&lt;&gt;(); list.add(0, "B");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>addAll(Collection c)</h3></div><div class="card-body"><p class="method-desc">Appends all elements from a collection.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.addAll(Arrays.asList("C", "D"));</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>clear()</h3></div><div class="card-body"><p class="method-desc">Removes all elements from the list.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.clear();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>clone()</h3></div><div class="card-body"><p class="method-desc">Returns a shallow copy of the ArrayList.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;(); Object cloned = list.clone();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>contains(Object o)</h3></div><div class="card-body"><p class="method-desc">Checks if the list contains a specific element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">boolean hasA = list.contains("A");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>ensureCapacity(int minCapacity)</h3></div><div class="card-body"><p class="method-desc">Ensures the list has at least a given capacity.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">((ArrayList&lt;String&gt;)list).ensureCapacity(100);</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>get(int index)</h3></div><div class="card-body"><p class="method-desc">Returns the element at a specific index.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String val = list.get(0);</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>indexOf(Object o)</h3></div><div class="card-body"><p class="method-desc">Returns the index of the first occurrence of an element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">int idx = list.indexOf("A");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>isEmpty()</h3></div><div class="card-body"><p class="method-desc">Checks if the list is empty.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">boolean empty = list.isEmpty();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>remove(int index)</h3></div><div class="card-body"><p class="method-desc">Removes the element at a specific index.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.remove(0);</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>sort(Comparator c)</h3></div><div class="card-body"><p class="method-desc">Sorts the list according to the specified comparator.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.sort(Comparator.naturalOrder());</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">2. LinkedList Methods</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>addFirst(E e)</h3></div><div class="card-body"><p class="method-desc">Inserts an element at the beginning.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">LinkedList&lt;String&gt; list = new LinkedList&lt;&gt;(); list.addFirst("A");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>addLast(E e)</h3></div><div class="card-body"><p class="method-desc">Appends an element to the end.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.addLast("B");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>getFirst()</h3></div><div class="card-body"><p class="method-desc">Retrieves, but does not remove, the first element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String first = list.getFirst();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>getLast()</h3></div><div class="card-body"><p class="method-desc">Retrieves, but does not remove, the last element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String last = list.getLast();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>removeFirst()</h3></div><div class="card-body"><p class="method-desc">Removes and returns the first element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.removeFirst();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>removeLast()</h3></div><div class="card-body"><p class="method-desc">Removes and returns the last element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.removeLast();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>push(E e)</h3></div><div class="card-body"><p class="method-desc">Pushes an element onto the stack (equivalent to addFirst).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.push("C");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>pop()</h3></div><div class="card-body"><p class="method-desc">Pops an element from the stack (equivalent to removeFirst).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.pop();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>offer(E e)</h3></div><div class="card-body"><p class="method-desc">Adds an element as the tail (last element) of the list.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">list.offer("D");</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>peek()</h3></div><div class="card-body"><p class="method-desc">Retrieves, but does not remove, the head (first element) of the list.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String peeked = list.peek();</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>poll()</h3></div><div class="card-body"><p class="method-desc">Retrieves and removes the head (first element) of the list.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String polled = list.poll();</div></div></div>
+        </div>
+        
+        <h3 class="subsection-title">3. HashSet Methods</h3>
+        <div class="methods-container">
+            <div class="method-card"><div class="card-header"><h3>add(E e)</h3></div><div class="card-body"><p class="method-desc">Adds an element if not already present.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">HashSet&lt;String&gt; set = new HashSet&lt;&gt;(); set.add("A");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>contains(Object o)</h3></div><div class="card-body"><p class="method-desc">Checks if the set contains an element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">boolean hasA = set.contains("A");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>remove(Object o)</h3></div><div class="card-body"><p class="method-desc">Removes the specified element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">set.remove("A");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>size()</h3></div><div class="card-body"><p class="method-desc">Returns the number of elements in the set.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">int setSize = set.size();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>iterator()</h3></div><div class="card-body"><p class="method-desc">Returns an iterator over the elements in the set.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Iterator&lt;String&gt; it = set.iterator();</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">4. TreeSet Methods</h3>
+        <div class="methods-container">
+            <div class="method-card"><div class="card-header"><h3>first()</h3></div><div class="card-body"><p class="method-desc">Returns the first (lowest) element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">TreeSet&lt;String&gt; set = new TreeSet&lt;&gt;(); set.add("B"); set.add("A"); String first = set.first(); // "A"</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>last()</h3></div><div class="card-body"><p class="method-desc">Returns the last (highest) element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String last = set.last(); // "B"</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>ceiling(E e)</h3></div><div class="card-body"><p class="method-desc">Returns the least element greater than or equal to the given element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">set.add("C"); String ceil = set.ceiling("B"); // "B"</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>floor(E e)</h3></div><div class="card-body"><p class="method-desc">Returns the greatest element less than or equal to the given element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String floor = set.floor("B"); // "B"</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>higher(E e)</h3></div><div class="card-body"><p class="method-desc">Returns the least element strictly greater than the given element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String higher = set.higher("A"); // "B"</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>lower(E e)</h3></div><div class="card-body"><p class="method-desc">Returns the greatest element strictly less than the given element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String lower = set.lower("B"); // "A"</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>pollFirst()</h3></div><div class="card-body"><p class="method-desc">Retrieves and removes the first (lowest) element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">set.pollFirst();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>pollLast()</h3></div><div class="card-body"><p class="method-desc">Retrieves and removes the last (highest) element.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">set.pollLast();</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">5. HashMap Methods</h3>
+        <div class="methods-container">
+            <div class="method-card"><div class="card-header"><h3>put(K key, V value)</h3></div><div class="card-body"><p class="method-desc">Associates a value with a key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;(); map.put("One", 1);</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>get(Object key)</h3></div><div class="card-body"><p class="method-desc">Retrieves the value for a key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Integer val = map.get("One");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>remove(Object key)</h3></div><div class="card-body"><p class="method-desc">Removes the mapping for a key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">map.remove("One");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>containsKey(Object key)</h3></div><div class="card-body"><p class="method-desc">Checks if the map contains a specific key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">boolean hasOne = map.containsKey("One");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>keySet()</h3></div><div class="card-body"><p class="method-desc">Returns a Set view of the keys.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Set&lt;String&gt; keys = map.keySet();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>values()</h3></div><div class="card-body"><p class="method-desc">Returns a Collection view of the values.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Collection&lt;Integer&gt; values = map.values();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>entrySet()</h3></div><div class="card-body"><p class="method-desc">Returns a Set view of the mappings.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Set&lt;Map.Entry&lt;String, Integer&gt;&gt; entries = map.entrySet();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>getOrDefault(Object key, V defaultValue)</h3></div><div class="card-body"><p class="method-desc">Returns the value for a key, or a default value if the key is not found.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Integer val = map.getOrDefault("Two", 2);</div></div></div>
+        </div>
+        
+        <h3 class="subsection-title">6. LinkedHashMap Methods</h3>
+        <div class="methods-container">
+            <div class="method-card"><div class="card-header"><h3>Maintains Insertion Order</h3></div><div class="card-body"><p class="method-desc">Inherits from HashMap, but iterates in the order keys were inserted.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">LinkedHashMap&lt;String, Integer&gt; lmap = new LinkedHashMap&lt;&gt;();
+lmap.put("Z", 3); lmap.put("A", 1);
+// Iteration order: "Z", "A"</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">7. TreeMap Methods</h3>
+        <div class="methods-container">
+             <div class="method-card"><div class="card-header"><h3>Sorted by Key</h3></div><div class="card-body"><p class="method-desc">Inherits from HashMap, but keeps keys in sorted order.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">TreeMap&lt;String, Integer&gt; tmap = new TreeMap&lt;&gt;();
+tmap.put("Z", 3); tmap.put("A", 1);
+// Iteration order: "A", "Z"</div></div></div>
+             <div class="method-card"><div class="card-header"><h3>firstKey()</h3></div><div class="card-body"><p class="method-desc">Returns the first (lowest) key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String first = tmap.firstKey(); // "A"</div></div></div>
+             <div class="method-card"><div class="card-header"><h3>lastKey()</h3></div><div class="card-body"><p class="method-desc">Returns the last (highest) key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String last = tmap.lastKey(); // "Z"</div></div></div>
+             <div class="method-card"><div class="card-header"><h3>firstEntry()</h3></div><div class="card-body"><p class="method-desc">Returns a key-value mapping associated with the least key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Map.Entry&lt;String, Integer&gt; firstEntry = tmap.firstEntry();</div></div></div>
+             <div class="method-card"><div class="card-header"><h3>lastEntry()</h3></div><div class="card-body"><p class="method-desc">Returns a key-value mapping associated with the greatest key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Map.Entry&lt;String, Integer&gt; lastEntry = tmap.lastEntry();</div></div></div>
+             <div class="method-card"><div class="card-header"><h3>pollFirstEntry()</h3></div><div class="card-body"><p class="method-desc">Removes and returns a key-value mapping associated with the least key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">tmap.pollFirstEntry();</div></div></div>
+             <div class="method-card"><div class="card-header"><h3>pollLastEntry()</h3></div><div class="card-body"><p class="method-desc">Removes and returns a key-value mapping associated with the greatest key.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">tmap.pollLastEntry();</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">8. Queue Methods (LinkedList Implementation)</h3>
+        <div class="methods-container">
+            <div class="method-card"><div class="card-header"><h3>offer(E e)</h3></div><div class="card-body"><p class="method-desc">Adds an element to the tail of the queue.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">Queue&lt;String&gt; queue = new LinkedList&lt;&gt;(); queue.offer("A");</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>poll()</h3></div><div class="card-body"><p class="method-desc">Retrieves and removes the head of the queue.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String head = queue.poll();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>peek()</h3></div><div class="card-body"><p class="method-desc">Retrieves, but does not remove, the head of the queue.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String peeked = queue.peek();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>element()</h3></div><div class="card-body"><p class="method-desc">Retrieves, but does not remove, the head of the queue (throws exception if empty).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String element = queue.element();</div></div></div>
+            <div class="method-card"><div class="card-header"><h3>remove()</h3></div><div class="card-body"><p class="method-desc">Retrieves and removes the head of the queue (throws exception if empty).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String removed = queue.remove();</div></div></div>
+        </div>
+      </section>
+
+      <section id="string-methods-section" class="category-section">
+        <h2 class="section-title">String Class Methods</h2>
+
+        <h3 class="subsection-title">Character and Code Point Access</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>charAt(int index)</h3></div><div class="card-body"><p class="method-desc">Returns the character at the specified index.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+char ch = str.charAt(1);
+// ch is 'a'</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>codePointAt(int index)</h3></div><div class="card-body"><p class="method-desc">Returns the Unicode code point at the specified index.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+int codePoint = str.codePointAt(1);
+// codePoint is 97</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>codePointBefore(int index)</h3></div><div class="card-body"><p class="method-desc">Returns the Unicode code point before the specified index.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+int codePoint = str.codePointBefore(2);
+// codePoint is 97</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>codePointCount(int begin, int end)</h3></div><div class="card-body"><p class="method-desc">Returns the number of Unicode code points in the specified text range.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+int count = str.codePointCount(0, 4);
+// count is 4</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>offsetByCodePoints(int index, int offset)</h3></div><div class="card-body"><p class="method-desc">Returns the index offset by `codePointOffset` code points.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+int newIndex = str.offsetByCodePoints(1, 2);
+// newIndex is 3</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">Comparison</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>compareTo(String anotherString)</h3></div><div class="card-body"><p class="method-desc">Compares two strings lexicographically.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String s1 = "A"; String s2 = "B";
+int result = s1.compareTo(s2);
+// result is negative</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>compareToIgnoreCase(String str)</h3></div><div class="card-body"><p class="method-desc">Compares two strings lexicographically, ignoring case.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String s1 = "a"; String s2 = "A";
+int result = s1.compareToIgnoreCase(s2);
+// result is 0</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>equals(Object anObject)</h3></div><div class="card-body"><p class="method-desc">Checks if this string is equal to the specified object.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String s1 = "Java"; String s2 = "Java";
+boolean isEqual = s1.equals(s2);
+// isEqual is true</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>equalsIgnoreCase(String anotherString)</h3></div><div class="card-body"><p class="method-desc">Checks if this string equals another string, ignoring case.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String s1 = "java"; String s2 = "Java";
+boolean isEqual = s1.equalsIgnoreCase(s2);
+// isEqual is true</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>contentEquals(CharSequence cs)</h3></div><div class="card-body"><p class="method-desc">Checks if this string equals the specified CharSequence.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+StringBuilder sb = new StringBuilder("Java");
+boolean isEqual = str.contentEquals(sb);
+// isEqual is true</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">Searching and Indexing</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>indexOf(int ch)</h3></div><div class="card-body"><p class="method-desc">Returns the index of the first occurrence of the specified character.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "banana";
+int index = str.indexOf('a');
+// index is 1</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>indexOf(String str)</h3></div><div class="card-body"><p class="method-desc">Returns the index of the first occurrence of the specified substring.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Hello World";
+int index = str.indexOf("World");
+// index is 6</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>lastIndexOf(int ch)</h3></div><div class="card-body"><p class="method-desc">Returns the index of the last occurrence of the character.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "banana";
+int index = str.lastIndexOf('a');
+// index is 5</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>lastIndexOf(String str)</h3></div><div class="card-body"><p class="method-desc">Returns the last index of the specified substring.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Hello World Hello";
+int index = str.lastIndexOf("Hello");
+// index is 12</div></div></div>
+        </div>
+        
+        <h3 class="subsection-title">Substrings and Case Conversion</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>substring(int beginIndex, int endIndex)</h3></div><div class="card-body"><p class="method-desc">Returns a substring from `beginIndex` to `endIndex - 1`.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Hello World";
+String sub = str.substring(6, 11);
+// sub is "World"</div></div></div>
+           <div class="method-card"><div class="card-header"><h3>toLowerCase()</h3></div><div class="card-body"><p class="method-desc">Converts all characters to lowercase.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "JAVA";
+String lower = str.toLowerCase();
+// lower is "java"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>toUpperCase()</h3></div><div class="card-body"><p class="method-desc">Converts all characters to uppercase.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "java";
+String upper = str.toUpperCase();
+// upper is "JAVA"</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">Whitespace and Trimming</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>trim()</h3></div><div class="card-body"><p class="method-desc">Removes whitespace from both ends.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "  Hello  ";
+String trimmed = str.trim();
+// trimmed is "Hello"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>strip()</h3></div><div class="card-body"><p class="method-desc">Removes all types of leading and trailing whitespace (Java 11+).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "  Hello\t ";
+String stripped = str.strip();
+// stripped is "Hello"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>stripLeading()</h3></div><div class="card-body"><p class="method-desc">Removes leading whitespace (Java 11+).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "  Hello  ";
+String stripped = str.stripLeading();
+// stripped is "Hello  "</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>stripTrailing()</h3></div><div class="card-body"><p class="method-desc">Removes trailing whitespace (Java 11+).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "  Hello  ";
+String stripped = str.stripTrailing();
+// stripped is "  Hello"</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">Joining, Formatting, and Replacing</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>join(CharSequence d, CharSequence... e)</h3></div><div class="card-body"><p class="method-desc">Joins strings using the given delimiter (static method).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String joined = String.join("-", "a", "b", "c");
+// joined is "a-b-c"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>format(String format, Object... args)</h3></div><div class="card-body"><p class="method-desc">Returns a formatted string (static method).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String formatted = String.format("Val: %d", 42);
+// formatted is "Val: 42"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>replace(char old, char new)</h3></div><div class="card-body"><p class="method-desc">Replaces all occurrences of a character.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+String replaced = str.replace('a', 'o');
+// replaced is "Jovo"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>replaceAll(String regex, String r)</h3></div><div class="card-body"><p class="method-desc">Replaces all substrings matching the regex.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "a1b2c3";
+String replaced = str.replaceAll("\\d", "#");
+// replaced is "a#b#c#"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>split(String regex)</h3></div><div class="card-body"><p class="method-desc">Splits the string around matches of the given regex.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "a,b,c";
+String[] parts = str.split(",");
+// parts is ["a", "b", "c"]</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">Inspection and Checks</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>isEmpty()</h3></div><div class="card-body"><p class="method-desc">Returns true if the string's length is zero.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "";
+boolean empty = str.isEmpty();
+// empty is true</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>isBlank()</h3></div><div class="card-body"><p class="method-desc">Returns true if empty or contains only whitespace (Java 11+).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "   ";
+boolean blank = str.isBlank();
+// blank is true</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>startsWith(String prefix)</h3></div><div class="card-body"><p class="method-desc">Tests if the string starts with the specified prefix.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Hello";
+boolean starts = str.startsWith("He");
+// starts is true</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>endsWith(String suffix)</h3></div><div class="card-body"><p class="method-desc">Tests if the string ends with the specified suffix.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Hello";
+boolean ends = str.endsWith("lo");
+// ends is true</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>contains(CharSequence s)</h3></div><div class="card-body"><p class="method-desc">Tests if the string contains the specified sequence.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Hello";
+boolean has = str.contains("ell");
+// has is true</div></div></div>
+        </div>
+
+        <h3 class="subsection-title">Conversion and Repetition</h3>
+        <div class="methods-container">
+          <div class="method-card"><div class="card-header"><h3>toCharArray()</h3></div><div class="card-body"><p class="method-desc">Converts the string to a new character array.</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "Java";
+char[] chars = str.toCharArray();
+// chars is ['J', 'a', 'v', 'a']</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>valueOf(int i)</h3></div><div class="card-body"><p class="method-desc">Returns the string representation of an argument (static).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String s = String.valueOf(123);
+// s is "123"</div></div></div>
+          <div class="method-card"><div class="card-header"><h3>repeat(int count)</h3></div><div class="card-body"><p class="method-desc">Returns a string repeated `count` times (Java 11+).</p></div><div class="card-footer"><button class="example-toggle"><i class="fas fa-code"></i> View Example</button><div class="code-example">String str = "a";
+String repeated = str.repeat(3);
+// repeated is "aaa"</div></div></div>
+        </div>
+      </section>
+
+      <section id="array-section" class="category-section">
+        <h2 class="section-title">Array Methods (java.util.Arrays)</h2>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header"><h3>asList(T... a)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a fixed-size list backed by the specified array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">String[] array = {"a", "b", "c"};
+List&lt;String&gt; list = Arrays.asList(array);
+System.out.println(list);
+// Output: [a, b, c]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>binarySearch(array, key)</h3></div>
+            <div class="card-body"><p class="method-desc">Searches for a specified element using the binary search algorithm (requires sorted array).</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {10, 20, 30, 40, 50};
+int index = Arrays.binarySearch(arr, 30);
+System.out.println(index);
+// Output: 2</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>compare(array1, array2)</h3></div>
+            <div class="card-body"><p class="method-desc">Lexicographically compares two arrays.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr1 = {1, 2, 3};
+int[] arr2 = {1, 2, 3};
+int result = Arrays.compare(arr1, arr2);
+System.out.println(result);
+// Output: 0 (arrays are equal)</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>copyOf(original, newLength)</h3></div>
+            <div class="card-body"><p class="method-desc">Copies the specified array, truncating or padding as necessary.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] original = {1, 2, 3};
+int[] copied = Arrays.copyOf(original, 5);
+System.out.println(Arrays.toString(copied));
+// Output: [1, 2, 3, 0, 0]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>copyOfRange(original, from, to)</h3></div>
+            <div class="card-body"><p class="method-desc">Copies a range of the specified array into a new array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] original = {1, 2, 3, 4, 5};
+int[] copied = Arrays.copyOfRange(original, 1, 4);
+System.out.println(Arrays.toString(copied));
+// Output: [2, 3, 4]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>deepEquals(a1, a2)</h3></div>
+            <div class="card-body"><p class="method-desc">Checks if two multi-dimensional arrays are deeply equal.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">String[][] s1 = { {"a"}, {"b"} };
+String[][] s2 = { {"a"}, {"b"} };
+System.out.println(Arrays.deepEquals(s1, s2));
+// Output: true</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>deepHashCode(Object[] a)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a deep hash code for the array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">String[][] s1 = { {"a"}, {"b"} };
+System.out.println(Arrays.deepHashCode(s1));
+// Output: 30752</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>deepToString(Object[] a)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a deep string representation of the array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">String[][] s1 = { {"a", "b"}, {"c"} };
+System.out.println(Arrays.deepToString(s1));
+// Output: [[a, b], [c]]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>equals(array1, array2)</h3></div>
+            <div class="card-body"><p class="method-desc">Checks if two arrays are equal.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr1 = {1, 2, 3};
+int[] arr2 = {1, 2, 3};
+System.out.println(Arrays.equals(arr1, arr2));
+// Output: true</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>fill(array, value)</h3></div>
+            <div class="card-body"><p class="method-desc">Assigns the specified value to each element.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = new int[5];
+Arrays.fill(arr, 10);
+System.out.println(Arrays.toString(arr));
+// Output: [10, 10, 10, 10, 10]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>hashCode(array)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a hash code based on the contents of the array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {1, 2, 3};
+System.out.println(Arrays.hashCode(arr));
+// Output: 30817</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>mismatch(array1, array2)</h3></div>
+            <div class="card-body"><p class="method-desc">Finds and returns the index of the first mismatch between two arrays.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr1 = {1, 2, 4};
+int[] arr2 = {1, 2, 3};
+System.out.println(Arrays.mismatch(arr1, arr2));
+// Output: 2</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>parallelPrefix(array, operator)</h3></div>
+            <div class="card-body"><p class="method-desc">Applies a binary operator to each element in the array in parallel.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {1, 2, 3, 4, 5};
+Arrays.parallelPrefix(arr, (x, y) -> x + y);
+System.out.println(Arrays.toString(arr));
+// Output: [1, 3, 6, 10, 15]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>parallelSetAll(array, generator)</h3></div>
+            <div class="card-body"><p class="method-desc">Sets all elements in parallel using a generated function.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = new int[5];
+Arrays.parallelSetAll(arr, i -> i * 2);
+System.out.println(Arrays.toString(arr));
+// Output: [0, 2, 4, 6, 8]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>parallelSort(array)</h3></div>
+            <div class="card-body"><p class="method-desc">Sorts the specified array in parallel.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {5, 2, 8, 1, 9};
+Arrays.parallelSort(arr);
+System.out.println(Arrays.toString(arr));
+// Output: [1, 2, 5, 8, 9]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>setAll(array, generator)</h3></div>
+            <div class="card-body"><p class="method-desc">Sets each element using a generated function.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = new int[5];
+Arrays.setAll(arr, i -> i * 10);
+System.out.println(Arrays.toString(arr));
+// Output: [0, 10, 20, 30, 40]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>sort(array)</h3></div>
+            <div class="card-body"><p class="method-desc">Sorts the specified array into ascending order.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {5, 2, 8, 1, 9};
+Arrays.sort(arr);
+System.out.println(Arrays.toString(arr));
+// Output: [1, 2, 5, 8, 9]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>spliterator(array)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a spliterator over the elements in the array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {1, 2, 3, 4, 5};
+Spliterator.OfInt spliterator = Arrays.spliterator(arr);
+spliterator.forEachRemaining((n) -> System.out.print(n + " "));
+// Output: 1 2 3 4 5 </div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>stream(array)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a sequential Stream with the specified array as its source.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {1, 2, 3, 4, 5};
+IntStream stream = Arrays.stream(arr);
+stream.forEach(System.out::print);
+// Output: 12345</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>toString(array)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a string representation of the array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">int[] arr = {1, 2, 3};
+System.out.println(Arrays.toString(arr));
+// Output: [1, 2, 3]</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stringbuilder-section" class="category-section">
+        <h2 class="section-title">StringBuilder Methods</h2>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header"><h3>append(value)</h3></div>
+            <div class="card-body"><p class="method-desc">Appends the specified value (string, char, int, etc.) to the builder.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World");
+System.out.println(sb.toString());
+// Output: Hello World</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>insert(int offset, value)</h3></div>
+            <div class="card-body"><p class="method-desc">Inserts a value at the specified offset position.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("HelloWorld");
+sb.insert(5, " ");
+System.out.println(sb.toString());
+// Output: Hello World</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>replace(int start, int end, String str)</h3></div>
+            <div class="card-body"><p class="method-desc">Replaces the characters between start and end positions with the provided string.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello Java");
+sb.replace(6, 10, "World");
+System.out.println(sb.toString());
+// Output: Hello World</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>delete(int start, int end)</h3></div>
+            <div class="card-body"><p class="method-desc">Removes characters between the given start and end indexes.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+sb.delete(5, 11);
+System.out.println(sb.toString());
+// Output: Hello</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>deleteCharAt(int index)</h3></div>
+            <div class="card-body"><p class="method-desc">Removes the character at the specified index.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello");
+sb.deleteCharAt(1);
+System.out.println(sb.toString());
+// Output: Hllo</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>reverse()</h3></div>
+            <div class="card-body"><p class="method-desc">Reverses the sequence of characters.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("hello");
+sb.reverse();
+System.out.println(sb.toString());
+// Output: olleh</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>capacity()</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the current capacity of the StringBuilder.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder();
+System.out.println(sb.capacity());
+// Output: 16</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>ensureCapacity(int minimumCapacity)</h3></div>
+            <div class="card-body"><p class="method-desc">Increases the capacity, if needed, to ensure it can hold a minimum number of characters.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder();
+sb.ensureCapacity(20);
+System.out.println(sb.capacity());
+// Output: 34 (or more)</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>charAt(int index)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the character at the specified index.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello");
+System.out.println(sb.charAt(1));
+// Output: e</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>setCharAt(int index, char ch)</h3></div>
+            <div class="card-body"><p class="method-desc">Sets the character at the specified index.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello");
+sb.setCharAt(1, 'a');
+System.out.println(sb.toString());
+// Output: Hallo</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>length()</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the length of the character sequence.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello");
+System.out.println(sb.length());
+// Output: 5</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>setLength(int newLength)</h3></div>
+            <div class="card-body"><p class="method-desc">Sets the new length of the builder.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+sb.setLength(5);
+System.out.println(sb.toString());
+// Output: Hello</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>substring(int start)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a substring starting from the specified index.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+System.out.println(sb.substring(6));
+// Output: World</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>substring(int start, int end)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a substring from start (inclusive) to end (exclusive).</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+System.out.println(sb.substring(0, 5));
+// Output: Hello</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>toString()</h3></div>
+            <div class="card-body"><p class="method-desc">Converts the builder object to a String.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello");
+String str = sb.toString();
+System.out.println(str);
+// Output: Hello</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>trimToSize()</h3></div>
+            <div class="card-body"><p class="method-desc">Trims the capacity to the current length.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder(50);
+sb.append("Hello");
+sb.trimToSize();
+System.out.println(sb.capacity());
+// Output: 5</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)</h3></div>
+            <div class="card-body"><p class="method-desc">Copies characters from the builder into the destination array.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+char[] dst = new char[5];
+sb.getChars(6, 11, dst, 0);
+System.out.println(dst);
+// Output: World</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>indexOf(String str)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the index of the first occurrence of the specified substring.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+System.out.println(sb.indexOf("World"));
+// Output: 6</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>lastIndexOf(String str)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the last occurrence of the specified substring.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World Hello");
+System.out.println(sb.lastIndexOf("Hello"));
+// Output: 12</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>offsetByCodePoints(int index, int codePointOffset)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the index offset by code points.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Java\uD83D\uDE00"); // "Java" + grinning face emoji
+int index = sb.offsetByCodePoints(1, 2);
+System.out.println(index);
+// Output: 3</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>codePointAt(int index)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the Unicode code point at the specified index.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("J\uD83D\uDE00");
+int codePoint = sb.codePointAt(1);
+System.out.printf("U+%X", codePoint);
+// Output: U+1F600</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>codePointBefore(int index)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the Unicode code point before the specified index.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("J\uD83D\uDE00");
+int codePoint = sb.codePointBefore(3);
+System.out.printf("U+%X", codePoint);
+// Output: U+1F600</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>codePointCount(int beginIndex, int endIndex)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns the number of Unicode code points between two indices.</p></div>
+             <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Java\uD83D\uDE00");
+int count = sb.codePointCount(0, sb.length());
+System.out.println(count);
+// Output: 5</div>
+            </div>
+          </div>
+           <div class="method-card">
+            <div class="card-header"><h3>subSequence(int start, int end)</h3></div>
+            <div class="card-body"><p class="method-desc">Returns a new character sequence from start (inclusive) to end (exclusive).</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">StringBuilder sb = new StringBuilder("Hello World");
+CharSequence sub = sb.subSequence(0, 5);
+System.out.println(sub);
+// Output: Hello</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="char-array-section" class="category-section">
+        <h2 class="section-title">Character Array Operations</h2>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header"><h3>Declaration & Initialization</h3></div>
+            <div class="card-body"><p class="method-desc">Creating a character array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+System.out.println(vowels[0]);
+// Output: a</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>Iteration</h3></div>
+            <div class="card-body"><p class="method-desc">Looping through the elements of a char array.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">char[] letters = {'J', 'a', 'v', 'a'};
+for (char c : letters) {
+    System.out.print(c);
+}
+// Output: Java</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>Modification</h3></div>
+            <div class="card-body"><p class="method-desc">Changing a character at a specific index.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">char[] word = {'j', 'a', 'v', 'a'};
+word[0] = 'J';
+System.out.println(new String(word));
+// Output: Java</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>Conversion from String</h3></div>
+            <div class="card-body"><p class="method-desc">Using <code>str.toCharArray()</code>.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">String str = "Hello";
+char[] charArray = str.toCharArray();
+System.out.println(Arrays.toString(charArray));
+// Output: [H, e, l, l, o]</div>
+            </div>
+          </div>
+          <div class="method-card">
+            <div class="card-header"><h3>Conversion to String</h3></div>
+            <div class="card-body"><p class="method-desc">Using <code>new String(char[])</code>.</p></div>
+            <div class="card-footer">
+              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+              <div class="code-example">char[] charArray = {'W', 'o', 'r', 'l', 'd'};
+String str = new String(charArray);
+System.out.println(str);
+// Output: World</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sorting-section" class="category-section">
+        <h2 class="section-title">Sorting Methods</h2>
+        <div class="methods-container">
+          <!-- To add a new method card, copy this structure -->
+          <div class="method-card">
+            <div class="card-header">
+              <h3>Arrays.sort()</h3>
+              <div class="method-signature">Arrays.sort(array)</div>
+            </div>
+            <div class="card-body">
+              <p class="method-desc">Sorts the specified array into ascending numerical order.</p>
+            </div>
+            <div class="card-footer">
+              <button class="example-toggle">
+                <i class="fas fa-code"></i> View Example
+              </button>
+              <div class="code-example">
+import java.util.Arrays;
+
+int[] arr = {5, 2, 8, 1, 9};
+Arrays.sort(arr);
+System.out.println(Arrays.toString(arr));
+// Output: [1, 2, 5, 8, 9]
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="searching-section" class="category-section">
+        <h2 class="section-title">Searching Methods</h2>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header">
+              <h3>Arrays.binarySearch()</h3>
+              <div class="method-signature">Arrays.binarySearch(array, key)</div>
+            </div>
+            <div class="card-body">
+              <p class="method-desc">Searches the specified array for a value using the binary search algorithm. The array must be sorted beforehand.</p>
+            </div>
+            <div class="card-footer">
+              <button class="example-toggle">
+                <i class="fas fa-code"></i> View Example
+              </button>
+              <div class="code-example">
+import java.util.Arrays;
+
+int[] arr = {1, 2, 5, 8, 9}; // Must be sorted
+int index = Arrays.binarySearch(arr, 5);
+System.out.println("Element found at index: " + index);
+// Output: Element found at index: 2
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="string-manipulation-section" class="category-section">
+        <h2 class="section-title">String Manipulation</h2>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header">
+              <h3>String.substring()</h3>
+              <div class="method-signature">str.substring(startIndex, endIndex)</div>
+            </div>
+            <div class="card-body">
+              <p class="method-desc">Returns a new string that is a substring of this string.</p>
+            </div>
+            <div class="card-footer">
+              <button class="example-toggle">
+                <i class="fas fa-code"></i> View Example
+              </button>
+              <div class="code-example">
+String str = "Hello, World!";
+String sub = str.substring(7, 12);
+System.out.println(sub);
+// Output: World
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recursion-section" class="category-section">
+        <h2 class="section-title">Recursion</h2>
+        <div class="methods-container">
+          <div class="method-card">
+            <div class="card-header">
+              <h3>Factorial</h3>
+              <div class="method-signature">factorial(n)</div>
+            </div>
+            <div class="card-body">
+              <p class="method-desc">Calculates the factorial of a non-negative integer using recursion.</p>
+            </div>
+            <div class="card-footer">
+              <button class="example-toggle">
+                <i class="fas fa-code"></i> View Example
+              </button>
+              <div class="code-example">
+public int factorial(int n) {
+  if (n <= 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+System.out.println(factorial(5));
+// Output: 120
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Java Methods Cheat Sheet | Designed for Java Developers</p>
+    </footer>
+  </div>
+
+  <script src="Script.js"></script>
+</body>
+</html>
