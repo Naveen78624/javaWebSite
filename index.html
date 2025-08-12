@@ -921,65 +921,147 @@ System.out.println(sub);
       </section>
 
       <section id="char-array-section" class="category-section">
-        <h2 class="section-title">Character Array Operations</h2>
-        <div class="methods-container">
-          <div class="method-card">
-            <div class="card-header"><h3>Declaration & Initialization</h3></div>
-            <div class="card-body"><p class="method-desc">Creating a character array.</p></div>
-            <div class="card-footer">
-              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
-              <div class="code-example">char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+  <h2 class="section-title">Character Array Operations</h2>
+  <div class="methods-container">
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Declaration & Initialization</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Creating a character array.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] vowels = {'a', 'e', 'i', 'o', 'u'};
 System.out.println(vowels[0]);
 // Output: a</div>
-            </div>
-          </div>
-          <div class="method-card">
-            <div class="card-header"><h3>Iteration</h3></div>
-            <div class="card-body"><p class="method-desc">Looping through the elements of a char array.</p></div>
-            <div class="card-footer">
-              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
-              <div class="code-example">char[] letters = {'J', 'a', 'v', 'a'};
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Finding Length</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Getting the number of elements using the <code>.length</code> property.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] greet = {'H', 'e', 'l', 'l', 'o'};
+int len = greet.length;
+System.out.println("Length: " + len);
+// Output: Length: 5</div>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Iteration</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Looping through the elements of a char array.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] letters = {'J', 'a', 'v', 'a'};
 for (char c : letters) {
-    System.out.print(c);
+  System.out.print(c);
 }
 // Output: Java</div>
-            </div>
-          </div>
-          <div class="method-card">
-            <div class="card-header"><h3>Modification</h3></div>
-            <div class="card-body"><p class="method-desc">Changing a character at a specific index.</p></div>
-            <div class="card-footer">
-              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
-              <div class="code-example">char[] word = {'j', 'a', 'v', 'a'};
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Modification</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Changing a character at a specific index.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] word = {'j', 'a', 'v', 'a'};
 word[0] = 'J';
 System.out.println(new String(word));
 // Output: Java</div>
-            </div>
-          </div>
-          <div class="method-card">
-            <div class="card-header"><h3>Conversion from String</h3></div>
-            <div class="card-body"><p class="method-desc">Using <code>str.toCharArray()</code>.</p></div>
-            <div class="card-footer">
-              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
-              <div class="code-example">String str = "Hello";
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Conversion from String</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Using <code>str.toCharArray()</code>.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">String str = "Hello";
 char[] charArray = str.toCharArray();
 System.out.println(Arrays.toString(charArray));
 // Output: [H, e, l, l, o]</div>
-            </div>
-          </div>
-          <div class="method-card">
-            <div class="card-header"><h3>Conversion to String</h3></div>
-            <div class="card-body"><p class="method-desc">Using <code>new String(char[])</code>.</p></div>
-            <div class="card-footer">
-              <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
-              <div class="code-example">char[] charArray = {'W', 'o', 'r', 'l', 'd'};
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Conversion to String</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Using <code>new String(char[])</code>.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] charArray = {'W', 'o', 'r', 'l', 'd'};
 String str = new String(charArray);
 System.out.println(str);
 // Output: World</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Sorting</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Arranging elements in ascending order using <code>Arrays.sort()</code>.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] word = {'j', 'a', 'v', 'a'};
+Arrays.sort(word);
+System.out.println(new String(word));
+// Output: aajv</div>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Comparing Arrays</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Checking for equality using <code>Arrays.equals()</code>.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] arr1 = {'t', 'e', 's', 't'};
+char[] arr2 = {'t', 'e', 's', 't'};
+char[] arr3 = {'T', 'E', 'S', 'T'};
+System.out.println(Arrays.equals(arr1, arr2)); // true
+System.out.println(Arrays.equals(arr1, arr3)); // false</div>
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="card-header">
+        <h3>Copying a Sub-Array</h3>
+      </div>
+      <div class="card-body">
+        <p class="method-desc">Using <code>Arrays.copyOfRange()</code> to create a new array.</p>
+      </div>
+      <div class="card-footer">
+        <button class="example-toggle"><i class="fas fa-code"></i> View Example</button>
+        <div class="code-example">char[] source = {'a', 'b', 'c', 'd', 'e'};
+// Copies elements from index 1 up to (but not including) index 4.
+char[] destination = Arrays.copyOfRange(source, 1, 4);
+System.out.println(new String(destination));
+// Output: bcd</div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section id="sorting-section" class="category-section">
         <h2 class="section-title">Sorting Methods</h2>
@@ -1105,4 +1187,5 @@ System.out.println(factorial(5));
   <script src="Script.js"></script>
 </body>
 </html>
+
 
